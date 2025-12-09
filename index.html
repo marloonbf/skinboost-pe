@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duston Gel – Página informativa oficial</title>
+
+  <style>
+    :root {
+      --card-bg: #ffffff;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-soft: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Fondo (cámbialo por tu imagen) */
+      background-image: url("./sec5_wave.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .page {
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      background: rgba(15, 23, 42, 0.78);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 45px rgba(15,23,42,0.55);
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 780px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 22px 22px 18px;
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      color: #1d4ed8;
+      background: #e0f2fe;
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    ul.benefits {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    ul.benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    ul.benefits li::before {
+      content: "✔";
+      color: #16a34a;
+      font-weight: bold;
+      margin-top: 1px;
+    }
+
+    .disclaimer {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    .cta-area {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .btn-secondary:hover {
+      background: #d1d5db;
+      transform: translateY(-1px);
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .trust-tag {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: #4b5563;
+    }
+
+    /* Columna derecha */
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prod-img {
+      max-width: 260px;
+      width: 100%;
+      display: block;
+    }
+
+    .badges-img {
+      max-width: 100%;
+      width: 100%;
+      object-fit: contain;
+      opacity: 0.96;
+    }
+
+    /* Banner de cookies */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #f9fafb;
+      border-top: 1px solid var(--border-soft);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 13px;
+      z-index: 9999;
+    }
+
+    .cookie-banner p {
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .cookie-banner a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-btn {
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .cookie-settings {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .cookie-accept {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .cookie-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="page">
+    <section class="card">
+      <div class="badge-top">
+        <span class="badge-dot"></span>
+        Página informativa oficial Duston Gel
+      </div>
+
+      <h1>Apoya tus músculos y articulaciones con Duston Gel</h1>
+
+      <p class="subtitle">
+        Duston Gel es un bálsamo de calentamiento pensado para acompañar
+        la rutina diaria de personas activas, ayudando a cuidar músculos
+        y articulaciones durante cargas físicas.
+      </p>
+
+      <ul class="benefits">
+        <li>Puede aportar una sensación de calor agradable en la zona aplicada.</li>
+        <li>Ideal como apoyo antes o después de la actividad física.</li>
+        <li>Textura ligera que se absorbe fácilmente con un suave masaje.</li>
+        <li>Incluye componentes como condroitina y glucosamina, entre otros.</li>
+      </ul>
+
+      <p class="disclaimer">
+        Los efectos pueden variar entre personas. Antes de usar cualquier
+        producto cosmético, lee siempre la etiqueta y sigue las instrucciones
+        del fabricante. En caso de duda, consulta con tu médico o profesional
+        de la salud.
+      </p>
+
+      <div class="cta-area">
+        <button class="btn btn-primary"
+          onclick="window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDc5sABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&amp;al=103473&amp;ap=-1'">
+          Ver oferta oficial de Duston Gel
+        </button>
+
+        <button class="btn btn-secondary"
+          onclick="window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDc5sABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&amp;al=103473&amp;ap=-1'">
+          Ir a la página del proveedor
+        </button>
+
+        <div class="trust-row">
+          <span class="trust-tag">Compra segura en el sitio oficial</span>
+          <span class="trust-tag">Pago al recibir (si está disponible)</span>
+          <span class="trust-tag">Producto cosmético de uso externo</span>
+        </div>
+      </div>
+
+      <p class="disclaimer" style="margin-top:14px;">
+        Este publirreportaje es de carácter informativo y se basa en ficción;
+        cualquier parecido con personas o eventos reales es mera coincidencia.
+        Duston Gel es un producto cosmético de uso externo, no es un medicamento
+        y no está destinado a diagnosticar, tratar, curar ni prevenir enfermedades.
+        Un estilo de vida saludable y una alimentación equilibrada son fundamentales
+        para el bienestar general.
+      </p>
+    </section>
+
+    <aside class="right">
+      <!-- Cambia los nombres de archivo por tus imágenes reales -->
+      <img src="./sec7_img2.png" class="prod-img" alt="Envase de Duston Gel" />
+      <img src="./logo.png" class="badges-img" alt="Imagen ilustrativa de Duston Gel" />
+    </aside>
+  </main>
+
+  <!-- Banner de cookies -->
+  <div id="cookie-banner" class="cookie-banner">
+    <p>
+      Utilizamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra
+      <a href="#">Política de Privacidad</a>.
+    </p>
+
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-settings"
+        onclick="window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDc5sABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&amp;al=103473&amp;ap=-1'">
+        Ajustar cookies
+      </button>
+
+      <button class="cookie-btn cookie-accept"
+        onclick="window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDc5sABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&amp;al=103473&amp;ap=-1'">
+        Aceptar todas
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
