@@ -3,94 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Duston Gel – Página informativa oficial</title>
+  <title>Oxys – Información antes de la oferta oficial</title>
 
   <style>
     :root {
-      --card-bg: #ffffff;
-      --accent: #2563eb;
-      --accent-dark: #1d4ed8;
+      --accent: #e11d48;
+      --accent-dark: #be123c;
+      --bg-soft: #f9fafb;
       --text-main: #111827;
       --text-muted: #4b5563;
-      --border-soft: #e5e7eb;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-
-      /* Fondo (cámbialo por tu imagen) */
-      background-image: url("./sec5_wave.png");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
     }
 
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-soft);
+      color: var(--text-main);
       padding: 16px;
     }
 
-    .page {
+    .container {
       max-width: 900px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 24px;
-      background: rgba(15, 23, 42, 0.78);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 20px 45px rgba(15,23,42,0.55);
-      backdrop-filter: blur(10px);
-    }
-
-    @media (max-width: 780px) {
-      .page {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .card {
-      background: var(--card-bg);
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 22px 18px 26px;
       border-radius: 14px;
-      padding: 22px 22px 18px;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.12);
     }
 
-    .badge-top {
+    .top-tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-weight: 700;
-      color: #1d4ed8;
-      background: #e0f2fe;
-      border-radius: 999px;
+      letter-spacing: 0.08em;
+      color: #9f1239;
+      background: #ffe4e6;
       padding: 4px 10px;
+      border-radius: 999px;
       margin-bottom: 10px;
+      font-weight: 600;
     }
 
-    .badge-dot {
+    .top-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: #38bdf8;
+      background: var(--accent);
     }
 
     h1 {
       font-size: 24px;
-      margin-bottom: 8px;
-      color: var(--text-main);
+      margin-bottom: 6px;
     }
 
     .subtitle {
@@ -99,255 +69,409 @@
       margin-bottom: 14px;
     }
 
-    ul.benefits {
-      list-style: none;
-      margin-bottom: 16px;
+    .timer-bar {
+      font-size: 13px;
+      background: #fef2f2;
+      border-radius: 10px;
+      padding: 8px 10px;
+      color: #b91c1c;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 14px;
     }
 
-    ul.benefits li {
+    .timer-label {
+      font-weight: 600;
+    }
+
+    .timer-value {
+      font-weight: 700;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    @media (max-width: 780px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .img-box {
       display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--text-main);
+      justify-content: center;
+    }
+
+    .img-box img {
+      max-width: 260px;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .benefits-title {
+      font-size: 15px;
+      font-weight: 600;
       margin-bottom: 6px;
     }
 
-    ul.benefits li::before {
+    .benefits {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 14px;
+    }
+
+    .benefits li {
+      font-size: 14px;
+      margin-bottom: 6px;
+      padding-left: 18px;
+      position: relative;
+      color: var(--text-main);
+    }
+
+    .benefits li::before {
       content: "✔";
-      color: #16a34a;
-      font-weight: bold;
-      margin-top: 1px;
-    }
-
-    .disclaimer {
-      font-size: 11px;
-      color: #6b7280;
-      margin-top: 4px;
-    }
-
-    .cta-area {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 14px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 700;
     }
 
     .btn {
+      display: block;
       width: 100%;
-      padding: 12px 16px;
+      padding: 13px 16px;
       border-radius: 999px;
       border: none;
-      font-size: 15px;
-      font-weight: 600;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
       cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+    }
+
+    /* animação no botão principal */
+    @keyframes pulse-cta {
+      0% { transform: translateY(0) scale(1); box-shadow: 0 12px 25px rgba(225,29,72,0.45); }
+      50% { transform: translateY(-1px) scale(1.02); box-shadow: 0 18px 30px rgba(225,29,72,0.6); }
+      100% { transform: translateY(0) scale(1); box-shadow: 0 12px 25px rgba(225,29,72,0.45); }
     }
 
     .btn-primary {
       background: var(--accent);
-      color: #fff;
-      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.45);
+      color: #ffffff;
+      animation: pulse-cta 1.8s ease-in-out infinite;
     }
 
     .btn-primary:hover {
       background: var(--accent-dark);
-      transform: translateY(-1px);
     }
 
     .btn-secondary {
-      background: #e5e7eb;
-      color: #111827;
+      background: #111827;
+      color: #ffffff;
     }
 
     .btn-secondary:hover {
-      background: #d1d5db;
-      transform: translateY(-1px);
+      background: #020617;
     }
 
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
+    .disclaimer {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 14px;
+      line-height: 1.4;
     }
 
-    .trust-tag {
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
+    .soft-proof {
+      font-size: 12px;
       color: #4b5563;
+      margin-top: 10px;
+      text-align: center;
     }
 
-    /* Columna derecha */
-    .right {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
+    .soft-proof span {
+      font-weight: 600;
+      color: #b91c1c;
     }
 
-    .prod-img {
-      max-width: 260px;
-      width: 100%;
-      display: block;
-    }
-
-    .badges-img {
-      max-width: 100%;
-      width: 100%;
-      object-fit: contain;
-      opacity: 0.96;
-    }
-
-    /* Banner de cookies */
-    .cookie-banner {
+    /* COOKIE BANNER */
+    #cookie-banner {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: #f9fafb;
-      border-top: 1px solid var(--border-soft);
-      padding: 12px 16px;
+      background: #f3f4f6;
+      border-top: 1px solid #e5e7eb;
+      padding: 10px 14px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      align-items: center;
+      font-family: system-ui, sans-serif;
       font-size: 13px;
+      z-index: 9998;
+      gap: 10px;
+    }
+
+    #cookie-banner button {
+      padding: 8px 14px;
+      background: var(--accent);
+      border: none;
+      border-radius: 999px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      #cookie-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #cookie-banner button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* EXIT POPUP */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
       z-index: 9999;
     }
 
-    .cookie-banner p {
-      margin: 0;
+    .exit-modal {
+      max-width: 360px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 18px 16px 16px;
+      box-shadow: 0 20px 40px rgba(15,23,42,0.4);
+    }
+
+    .exit-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .exit-text {
+      font-size: 13px;
       color: #4b5563;
+      margin-bottom: 12px;
     }
 
-    .cookie-banner a {
-      color: #2563eb;
-      text-decoration: underline;
-    }
-
-    .cookie-actions {
+    .exit-row {
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
+      margin-top: 4px;
     }
 
-    .cookie-btn {
-      padding: 7px 12px;
+    .exit-btn-main {
+      flex: 1;
+      padding: 9px 10px;
       border-radius: 999px;
       border: none;
-      font-size: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
     }
 
-    .cookie-settings {
-      background: #e5e7eb;
-      color: #111827;
+    .exit-btn-secondary {
+      padding: 9px 10px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-size: 12px;
+      color: #4b5563;
+      cursor: pointer;
     }
 
-    .cookie-accept {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    @media (max-width: 640px) {
-      .cookie-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-  <main class="page">
-    <section class="card">
-      <div class="badge-top">
-        <span class="badge-dot"></span>
-        Página informativa oficial Duston Gel
-      </div>
+  <div class="container">
 
-      <h1>Apoya tus músculos y articulaciones con Duston Gel</h1>
+    <div class="top-tag">
+      <span class="top-dot"></span>
+      Contenido informativo antes de la página oficial
+    </div>
 
-      <p class="subtitle">
-        Duston Gel es un bálsamo de calentamiento pensado para acompañar
-        la rutina diaria de personas activas, ayudando a cuidar músculos
-        y articulaciones durante cargas físicas.
-      </p>
+    <h1>Oxys – Crema facial que muchas peruanas están añadiendo a su rutina diaria</h1>
 
-      <ul class="benefits">
-        <li>Puede aportar una sensación de calor agradable en la zona aplicada.</li>
-        <li>Ideal como apoyo antes o después de la actividad física.</li>
-        <li>Textura ligera que se absorbe fácilmente con un suave masaje.</li>
-        <li>Incluye componentes como condroitina y glucosamina, entre otros.</li>
-      </ul>
-
-      <p class="disclaimer">
-        Los efectos pueden variar entre personas. Antes de usar cualquier
-        producto cosmético, lee siempre la etiqueta y sigue las instrucciones
-        del fabricante. En caso de duda, consulta con tu médico o profesional
-        de la salud.
-      </p>
-
-      <div class="cta-area">
-        <button class="btn btn-primary"
-          onclick="window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDc5sABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&amp;al=103473&amp;ap=-1'">
-          Ver oferta oficial de Duston Gel
-        </button>
-
-        <button class="btn btn-secondary"
-          onclick="window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDc5sABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&amp;al=103473&amp;ap=-1'">
-          Ir a la página del proveedor
-        </button>
-
-        <div class="trust-row">
-          <span class="trust-tag">Compra segura en el sitio oficial</span>
-          <span class="trust-tag">Pago al recibir (si está disponible)</span>
-          <span class="trust-tag">Producto cosmético de uso externo</span>
-        </div>
-      </div>
-
-      <p class="disclaimer" style="margin-top:14px;">
-        Este publirreportaje es de carácter informativo y se basa en ficción;
-        cualquier parecido con personas o eventos reales es mera coincidencia.
-        Duston Gel es un producto cosmético de uso externo, no es un medicamento
-        y no está destinado a diagnosticar, tratar, curar ni prevenir enfermedades.
-        Un estilo de vida saludable y una alimentación equilibrada son fundamentales
-        para el bienestar general.
-      </p>
-    </section>
-
-    <aside class="right">
-      <!-- Cambia los nombres de archivo por tus imágenes reales -->
-      <img src="./sec7_img2.png" class="prod-img" alt="Envase de Duston Gel" />
-      <img src="./logo.png" class="badges-img" alt="Imagen ilustrativa de Duston Gel" />
-    </aside>
-  </main>
-
-  <!-- Banner de cookies -->
-  <div id="cookie-banner" class="cookie-banner">
-    <p>
-      Utilizamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra
-      <a href="#">Política de Privacidad</a>.
+    <p class="subtitle">
+      Antes de ir al sitio del proveedor, revisa este resumen rápido para ver si Oxys encaja en tu rutina de cuidado personal.
     </p>
 
-    <div class="cookie-actions">
-      <button class="cookie-btn cookie-settings"
-        onclick="window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDc5sABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&amp;al=103473&amp;ap=-1'">
-        Ajustar cookies
-      </button>
+    <div class="timer-bar">
+      <span class="timer-label">Próxima actualización de la página en:</span>
+      <span id="timer" class="timer-value">09:59</span>
+    </div>
 
-      <button class="cookie-btn cookie-accept"
-        onclick="window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDc5sABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&amp;al=103473&amp;ap=-1'">
-        Aceptar todas
-      </button>
+    <div class="content-grid">
+      <div>
+        <p style="font-size:14px; color:var(--text-muted); margin-bottom:10px;">
+          Oxys es una crema cosmética para uso externo, pensada para acompañar el cuidado
+          de la piel madura dentro de una rutina diaria sencilla.
+        </p>
+
+        <p class="benefits-title">Lo que muchas usuarias valoran de Oxys:</p>
+        <ul class="benefits">
+          <li>Textura ligera y fácil de aplicar en el rostro.</li>
+          <li>Puede ayudar a que la piel se sienta más suave y cuidada.</li>
+          <li>Ideal para complementar una rutina básica de limpieza y protección.</li>
+          <li>Producto del proveedor oficial, con formulario directo de pedido.</li>
+        </ul>
+
+        <a
+          class="btn btn-primary"
+          id="main-cta"
+          href="https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDAnUABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&al=104823&ap=-1"
+        >
+          Ver oferta oficial de Oxys
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDAnUABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&al=104823&ap=-1"
+        >
+          Ir a la página del proveedor
+        </a>
+
+      </div>
+
+      <div class="img-box">
+        <img src="./sec7_img2.png" alt="Crema Oxys" />
+      </div>
+    </div>
+
+    <p class="soft-proof">
+      <span>Nota:</span> Oxys es un producto cosmético, no un medicamento. La información completa sobre
+      precio, entrega y condiciones de pago se muestra sólo en la página oficial del proveedor.
+    </p>
+
+    <p class="disclaimer">
+      Este publirreportaje tiene carácter informativo y se basa en ficción; cualquier parecido con personas o
+      eventos reales es mera coincidencia. El producto es de uso externo y no está destinado a diagnosticar,
+      tratar, curar ni prevenir enfermedades. Ante dudas sobre tu piel, consulta siempre con un profesional
+      de la salud.
+    </p>
+
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner">
+    <span>
+      Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra política.
+    </span>
+
+    <button
+      onclick="
+        document.getElementById('cookie-banner').style.display='none';
+        window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDAnUABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&al=104823&ap=-1';
+      "
+    >
+      Aceptar y ver oferta
+    </button>
+  </div>
+
+  <!-- EXIT INTENT POPUP -->
+  <div class="overlay" id="exit-overlay">
+    <div class="exit-modal">
+      <div class="exit-title">¿Quieres ver la oferta oficial antes de salir?</div>
+      <div class="exit-text">
+        La información completa sobre precio, entrega y condiciones de pago está en la página del proveedor.
+      </div>
+      <div class="exit-row">
+        <button
+          class="exit-btn-main"
+          onclick="
+            window.location.href='https://5adb6f.asdnecfoqwq.cc/?target=-7EBNQCgQAAAfApAQDAnUABQEBEREKEQkKEQ1CEQ0SAAF_YWRjb21ibwEx&al=104823&ap=-1';
+          "
+        >
+          Ver oferta oficial ahora
+        </button>
+        <button
+          class="exit-btn-secondary"
+          onclick="document.getElementById('exit-overlay').style.display='none';"
+        >
+          Cerrar
+        </button>
+      </div>
     </div>
   </div>
+
+  <script>
+    // Timer simples de "próxima actualización"
+    (function () {
+      const timerEl = document.getElementById("timer");
+      let totalSeconds = 9 * 60 + 59; // 09:59
+
+      function updateTimer() {
+        if (!timerEl) return;
+        if (totalSeconds <= 0) {
+          timerEl.textContent = "00:00";
+          return;
+        }
+        const m = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
+        const s = String(totalSeconds % 60).padStart(2, "0");
+        timerEl.textContent = m + ":" + s;
+        totalSeconds--;
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    })();
+
+    // Exit intent popup (desktop + tempo em mobile)
+    (function () {
+      const overlay = document.getElementById("exit-overlay");
+      const mainCta = document.getElementById("main-cta");
+      let popupShown = false;
+      let clickedMain = false;
+
+      if (mainCta) {
+        mainCta.addEventListener("click", function () {
+          clickedMain = true;
+        });
+      }
+
+      // Desktop: quando o mouse sai para cima
+      document.addEventListener("mouseout", function (e) {
+        if (popupShown || clickedMain) return;
+        if (!e.toElement && !e.relatedTarget && e.clientY <= 0) {
+          overlay.style.display = "flex";
+          popupShown = true;
+        }
+      });
+
+      // Mobile: mostra depois de alguns segundos, se não clicou
+      setTimeout(function () {
+        if (!popupShown && !clickedMain && overlay) {
+          overlay.style.display = "flex";
+          popupShown = true;
+        }
+      }, 20000); // 20 segundos
+    })();
+  </script>
 
 </body>
 </html>
